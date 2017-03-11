@@ -191,7 +191,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             }
         }
         
-        if newScore - score <= 0 {
+        if newScore - score < 0 {
             self.enumerateChildNodes(withName: "Score"){
                 node, pointer in
                 node.removeFromParent()
@@ -199,7 +199,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             self.drawScore()
         }
         
-        if newHealth - playerHealth <= 0 {
+        if newHealth - playerHealth < 0 {
             self.enumerateChildNodes(withName: "Health"){
                 node, pointer in
                 node.removeFromParent()
