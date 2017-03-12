@@ -15,7 +15,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     let fly1 = SKSpriteNode(imageNamed: "fly-1-1.png")
     let fly2 = SKSpriteNode(imageNamed: "fly-1-1.png")
     let Margin : CGFloat = 20
-    
+    var startTime : TimeInterval = -1
+    var fliesStartTime : TimeInterval = -1
+    var fliesMoveTime : TimeInterval = -1
+    var flyShootCount : Int = 0
+    var fliesMoveCount : Int = 0
+    var newScore = 0
+    var newHealth = 0
     var playerBullet : [SKSpriteNode] = []
     var flies : [SKSpriteNode] = []
     var score : Int = 0
@@ -129,14 +135,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
     }
     
-    var startTime : TimeInterval = -1
-    var fliesStartTime : TimeInterval = -1
-    var fliesMoveTime : TimeInterval = -1
     
-    var flyShootCount : Int = 0
-    var fliesMoveCount : Int = 0
-    var newScore = 0
-    var newHealth = 0
     
     override func update(_ currentTime: TimeInterval) {
         
