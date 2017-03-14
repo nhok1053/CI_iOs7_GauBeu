@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8446FCD31E7533740002FA1F /* attack-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8446FCCE1E7533740002FA1F /* attack-1.wav */; };
+		8446FCD41E7533740002FA1F /* attack-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8446FCCF1E7533740002FA1F /* attack-2.wav */; };
+		8446FCD51E7533740002FA1F /* player-explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8446FCD01E7533740002FA1F /* player-explosion.wav */; };
+		8446FCD61E7533740002FA1F /* player-shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8446FCD11E7533740002FA1F /* player-shoot.wav */; };
+		8446FCD71E7533740002FA1F /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8446FCD21E7533740002FA1F /* shoot.wav */; };
+		8446FCDF1E7548360002FA1F /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8446FCDE1E7548360002FA1F /* fire.sks */; };
 		84E288D41E6D4C850009486D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E288D31E6D4C850009486D /* AppDelegate.swift */; };
 		84E288D61E6D4C850009486D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E288D51E6D4C850009486D /* GameScene.sks */; };
 		84E288D81E6D4C850009486D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E288D71E6D4C850009486D /* Actions.sks */; };
@@ -37,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8446FCCE1E7533740002FA1F /* attack-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "attack-1.wav"; path = "../../../../Downloads/galaga-sound/attack-1.wav"; sourceTree = "<group>"; };
+		8446FCCF1E7533740002FA1F /* attack-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "attack-2.wav"; path = "../../../../Downloads/galaga-sound/attack-2.wav"; sourceTree = "<group>"; };
+		8446FCD01E7533740002FA1F /* player-explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "player-explosion.wav"; path = "../../../../Downloads/galaga-sound/player-explosion.wav"; sourceTree = "<group>"; };
+		8446FCD11E7533740002FA1F /* player-shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "player-shoot.wav"; path = "../../../../Downloads/galaga-sound/player-shoot.wav"; sourceTree = "<group>"; };
+		8446FCD21E7533740002FA1F /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = shoot.wav; path = "../../../../Downloads/galaga-sound/shoot.wav"; sourceTree = "<group>"; };
+		8446FCDE1E7548360002FA1F /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
 		84E288D01E6D4C850009486D /* Session3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Session3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E288D31E6D4C850009486D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E288D51E6D4C850009486D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -80,6 +92,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8446FCCD1E7533600002FA1F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8446FCCE1E7533740002FA1F /* attack-1.wav */,
+				8446FCCF1E7533740002FA1F /* attack-2.wav */,
+				8446FCD01E7533740002FA1F /* player-explosion.wav */,
+				8446FCD11E7533740002FA1F /* player-shoot.wav */,
+				8446FCD21E7533740002FA1F /* shoot.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		84E288C71E6D4C850009486D = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +127,7 @@
 		84E288D21E6D4C850009486D /* Session3 */ = {
 			isa = PBXGroup;
 			children = (
+				8446FCCD1E7533600002FA1F /* Sounds */,
 				84E288D31E6D4C850009486D /* AppDelegate.swift */,
 				84E288D51E6D4C850009486D /* GameScene.sks */,
 				84E288D71E6D4C850009486D /* Actions.sks */,
@@ -112,6 +137,7 @@
 				84E288E01E6D4C850009486D /* Assets.xcassets */,
 				84E288E21E6D4C850009486D /* LaunchScreen.storyboard */,
 				84E288E51E6D4C850009486D /* Info.plist */,
+				8446FCDE1E7548360002FA1F /* fire.sks */,
 			);
 			path = Session3;
 			sourceTree = "<group>";
@@ -244,7 +270,13 @@
 				84E288DF1E6D4C850009486D /* Main.storyboard in Resources */,
 				84E288D61E6D4C850009486D /* GameScene.sks in Resources */,
 				84E288E11E6D4C850009486D /* Assets.xcassets in Resources */,
+				8446FCD51E7533740002FA1F /* player-explosion.wav in Resources */,
 				84E288E41E6D4C850009486D /* LaunchScreen.storyboard in Resources */,
+				8446FCD41E7533740002FA1F /* attack-2.wav in Resources */,
+				8446FCD31E7533740002FA1F /* attack-1.wav in Resources */,
+				8446FCD61E7533740002FA1F /* player-shoot.wav in Resources */,
+				8446FCD71E7533740002FA1F /* shoot.wav in Resources */,
+				8446FCDF1E7548360002FA1F /* fire.sks in Resources */,
 				84E288D81E6D4C850009486D /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +549,7 @@
 				84E289001E6D4C860009486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84E289011E6D4C860009486D /* Build configuration list for PBXNativeTarget "Session3Tests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +558,7 @@
 				84E289031E6D4C860009486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84E289041E6D4C860009486D /* Build configuration list for PBXNativeTarget "Session3UITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +567,7 @@
 				84E289061E6D4C860009486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

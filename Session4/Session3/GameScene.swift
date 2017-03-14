@@ -25,14 +25,49 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     var playerBullet : [SKSpriteNode] = []
     var flies : [SKSpriteNode] = []
     var score : Int = 0
-    var playerHealth : Int = 30
+    var playerHealth : Int = 3
+    let playerShootSoundAction = SKAction.playSoundFileNamed("player-shoot.wav", waitForCompletion: false)
+    let flyTexure1 = SKTexture(imageNamed: "fly-1-1.png")
+    let flyTexures2 = SKTexture(imageNamed: "fly-1-2.png")
+    let exploTexures1 = SKTexture(imageNamed: "explosion-0.png")
+    let exploTexures2 = SKTexture(imageNamed: "explosion-1.png")
+    let exploTexures3 = SKTexture(imageNamed: "explosion-2.png")
+    let exploTexures4 = SKTexture(imageNamed: "explosion-3.png")
+    let playerExplosionTexures1 = SKTexture(imageNamed: "explosion-2-1.png")
+    let playerExplosionTexures2 = SKTexture(imageNamed: "explosion-2-2.png")
+    let playerExplosionTexures3 = SKTexture(imageNamed: "explosion-2-3.png")
+    let playerExplosionTexures4 = SKTexture(imageNamed: "explosion-2-4.png")
+    let playerExplosionSounds = SKAction.playSoundFileNamed("player-explosion.wav", waitForCompletion: false)
     
+    let backGround1 = SKSpriteNode(imageNamed: "background.png")
+    let backGround2 = SKSpriteNode(imageNamed: "background.png")
     override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0, y: 0)
+//        addStarField()
+        let backGround1 = SKSpriteNode(imageNamed: "background.png")
+        backGround1.position = CGPoint(x: size.width/2, y: size.height)
+        backGround1.zPosition = -20
+        addChild(backGround1)
+//        addStarField()
         configPhysics()
         addPlayer()
         addFlies()
         
+    }
+    
+    func addStarField() -> Void {
+        if let startFieldNode = SKEmitterNode(fileNamed: "fire.sks"){
+            startFieldNode.position = CGPoint (x : self.size.width / 2 , y : self.size.height)
+            startFieldNode.zPosition = -100
+            startFieldNode.particlePositionRange = CGVector(dx: self.size.width, dy: 0)
+            addChild(startFieldNode)
+        }
+        
+    }
+    func addBackGround() -> Void {
+        backGround1.anchorPoint = CGPoint(x : 0 ,y : 0 )
+        backGround1.position = CGPoint(x: self.size.width/2, y: self.size.height)
+        addChild(backGround1)
     }
     func drawScore() -> Void {
         let scoresLabel = SKLabelNode(fontNamed : "Chalkduster")
@@ -42,7 +77,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         scoresLabel.fontColor = SKColor.white
         scoresLabel.position = CGPoint(x: 350, y: self.size.height - 30)
         addChild(scoresLabel)
-        }
+    }
+    
     func drawHealth() -> Void {
         let healthLabel = SKLabelNode(fontNamed : "Chalkduster")
         healthLabel.text = "Health : \(playerHealth) "
@@ -52,7 +88,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         healthLabel.position = CGPoint(x: 70, y: self.size.height - 30)
         addChild(healthLabel)
     }
-
+    
     func addPlayer() -> Void {
         playerNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         playerNode.position = CGPoint(x: self.size.width/2, y: 0)
@@ -73,24 +109,48 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         let bodyA = contact.bodyA
         let bodyB = contact.bodyB
         
-        let nodeA = bodyA.node
-        let nodeB = bodyB.node
+        guard let nodeA = bodyA.node , let nodeB = bodyB.node  else {
+            return
+        }
+        
         
         if (bodyA.categoryBitMask | bodyB.categoryBitMask) == 3 {
-            nodeA?.removeFromParent()
-            nodeB?.removeFromParent()
+            nodeA.removeFromParent()
+            nodeB.removeFromParent()
+            addExplosion(point: nodeA.position)
+            //            self.enumerateChildNodes(withName: "Destroy"){
+            //            node, pointer in
+            //                node.removeFromParent()
+            //            }
             score += 1
         }
         
         if (bodyA.categoryBitMask | bodyB.categoryBitMask) == 5 {
             playerHealth -= 1
             if(playerHealth == 0){
-            nodeA?.removeFromParent()
-            nodeB?.removeFromParent()
-                }
+                addPlayerExplosion(point: nodeA.position)
+                nodeA.removeFromParent()
+                nodeB.removeFromParent()
+            }
         }
     }
+    func addExplosion(point : CGPoint) ->Void{
+        let explosionNode = SKSpriteNode(imageNamed: "explosion-0.png")
+        explosionNode.name = "Destroy"
+        explosionNode.position = point
+        let animation = SKAction.animate(with: [exploTexures1,exploTexures2,exploTexures3,exploTexures4], timePerFrame: 0.2)
+        explosionNode.run(.sequence([animation,.removeFromParent()]))
+        addChild(explosionNode)
+    }
     
+    func addPlayerExplosion(point : CGPoint) -> Void {
+        let explosionPlayerNode = SKSpriteNode(imageNamed: "explosion-2-1.png")
+        explosionPlayerNode.position = CGPoint(x : point.x , y : point.y + explosionPlayerNode.size.height/2)
+        let animation = SKAction.animate(with: [playerExplosionTexures1,playerExplosionTexures2,playerExplosionTexures3,playerExplosionTexures4], timePerFrame: 0.4)
+        explosionPlayerNode.run(.sequence([playerExplosionSounds,animation,.removeFromParent()]))
+        addChild(explosionPlayerNode)
+        
+    }
     let FLIES_NAME = "Flies Name"
     
     func addFlies() -> Void {
@@ -112,6 +172,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             flyNode.physicsBody?.linearDamping = 0
             flyNode.physicsBody?.categoryBitMask = 2
             flyNode.physicsBody?.contactTestBitMask = 1
+            flyNode.run(.repeatForever(.animate(with: [flyTexure1, flyTexures2], timePerFrame: 0.5)))
             addChild(flyNode)
             flies.append(flyNode)
         }
@@ -205,7 +266,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             }
             self.drawHealth()
         }
-
+        
     }
     
     let PLAYER_BULLET_NAME = "Player bullet"
@@ -221,10 +282,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             bulletNode.physicsBody?.collisionBitMask = 0
             bulletNode.physicsBody?.velocity = CGVector(dx: (-300 + count * 60) , dy: 400)
             bulletNode.physicsBody?.mass = 0
+            bulletNode.run(playerShootSoundAction)
             addChild(bulletNode)
             playerBullet.append(bulletNode)
- 
         }
+        
     }
     
     func flyShoot(fly : SKSpriteNode) -> Void {
