@@ -15,6 +15,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     let fly1 = SKSpriteNode(imageNamed: "fly-1-1.png")
     let fly2 = SKSpriteNode(imageNamed: "fly-1-1.png")
     let Margin : CGFloat = 20
+    let image = SKSpriteNode(imageNamed :"background.png")
     
     var playerBullet : [SKSpriteNode] = []
     var flies : [SKSpriteNode] = []
@@ -23,6 +24,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0, y: 0)
+        image.position = CGPoint(x : 300 , y : 0)
+        image.zPosition = -5
+        addChild(image)
         configPhysics()
         addPlayer()
         addFlies()

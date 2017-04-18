@@ -39,16 +39,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     let playerExplosionTexures4 = SKTexture(imageNamed: "explosion-2-4.png")
     let playerExplosionSounds = SKAction.playSoundFileNamed("player-explosion.wav", waitForCompletion: false)
     
-    let backGround1 = SKSpriteNode(imageNamed: "background.png")
-    let backGround2 = SKSpriteNode(imageNamed: "background.png")
-    override func didMove(to view: SKView) {
+   let backGround1 = SKSpriteNode(imageNamed: "background.png")
+        let backGround2 = SKSpriteNode(imageNamed: "background.png")
+    
+        override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0, y: 0)
-//        addStarField()
-        let backGround1 = SKSpriteNode(imageNamed: "background.png")
-        backGround1.position = CGPoint(x: size.width/2, y: size.height)
-        backGround1.zPosition = -20
-        addChild(backGround1)
-//        addStarField()
+        addBackGround()
+            
         configPhysics()
         addPlayer()
         addFlies()
@@ -60,15 +57,19 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             startFieldNode.position = CGPoint (x : self.size.width / 2 , y : self.size.height)
             startFieldNode.zPosition = -100
             startFieldNode.particlePositionRange = CGVector(dx: self.size.width, dy: 0)
+            
             addChild(startFieldNode)
         }
         
     }
     func addBackGround() -> Void {
-        backGround1.anchorPoint = CGPoint(x : 0 ,y : 0 )
-        backGround1.position = CGPoint(x: self.size.width/2, y: self.size.height)
+        let backGround1 = SKSpriteNode(imageNamed: "background")
+        backGround1.position = CGPoint(x: self.size.width/2 , y: 0)
+        backGround1.size = CGSize(width: self.size.width, height: self.size.height)
+        backGround1.zPosition = -5
         addChild(backGround1)
     }
+    
     func drawScore() -> Void {
         let scoresLabel = SKLabelNode(fontNamed : "Chalkduster")
         scoresLabel.text = "Score : \(score) "

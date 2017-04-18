@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848FCA891E785BBB00218027 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 848FCA881E785BBB00218027 /* background.png */; };
 		84E288D41E6D4C850009486D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E288D31E6D4C850009486D /* AppDelegate.swift */; };
 		84E288D61E6D4C850009486D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E288D51E6D4C850009486D /* GameScene.sks */; };
 		84E288D81E6D4C850009486D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E288D71E6D4C850009486D /* Actions.sks */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		848FCA881E785BBB00218027 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../../../../../Volumes/Untitled/background.png; sourceTree = "<group>"; };
 		84E288D01E6D4C850009486D /* Session3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Session3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E288D31E6D4C850009486D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E288D51E6D4C850009486D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				84E288DB1E6D4C850009486D /* GameViewController.swift */,
 				84E288DD1E6D4C850009486D /* Main.storyboard */,
 				84E288E01E6D4C850009486D /* Assets.xcassets */,
+				848FCA881E785BBB00218027 /* background.png */,
 				84E288E21E6D4C850009486D /* LaunchScreen.storyboard */,
 				84E288E51E6D4C850009486D /* Info.plist */,
 			);
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E288DF1E6D4C850009486D /* Main.storyboard in Resources */,
+				848FCA891E785BBB00218027 /* background.png in Resources */,
 				84E288D61E6D4C850009486D /* GameScene.sks in Resources */,
 				84E288E11E6D4C850009486D /* Assets.xcassets in Resources */,
 				84E288E41E6D4C850009486D /* LaunchScreen.storyboard in Resources */,
@@ -517,6 +521,7 @@
 				84E289001E6D4C860009486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84E289011E6D4C860009486D /* Build configuration list for PBXNativeTarget "Session3Tests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				84E289031E6D4C860009486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84E289041E6D4C860009486D /* Build configuration list for PBXNativeTarget "Session3UITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +539,7 @@
 				84E289061E6D4C860009486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
